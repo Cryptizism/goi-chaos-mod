@@ -22,65 +22,59 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Reference Include="Jotunn">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\Jotunn.dll</HintPath>
-    </Reference>
     <Reference Include="LeanTween">
-      <HintPath>..\..\goi-chaos-mod-ui\Assets\LeanTween\Framework\LeanTweenDLL\LeanTween.dll</HintPath>
+      <HintPath>libs\LeanTween.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Logging.Abstractions">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <HintPath>libs\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Rewired_Core">
-      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Getting Over It\GettingOverIt_Data\Managed\Rewired_Core.dll</HintPath>
+      <HintPath>libs\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api.Core">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.Core.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.Core.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api.Core.Enums">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.Core.Enums.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.Core.Enums.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api.Core.Interfaces">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.Core.Interfaces.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.Core.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api.Core.Models">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.Core.Models.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.Core.Models.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api.Helix">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.Helix.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.Helix.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api.Helix.Models">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.Helix.Models.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.Helix.Models.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api.V5">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.V5.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.V5.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api.V5.Models">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Api.V5.Models.dll</HintPath>
+      <HintPath>libs\TwitchLib.Api.V5.Models.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Client">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Client.dll</HintPath>
+      <HintPath>libs\TwitchLib.Client.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Client.Enums">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Client.Enums.dll</HintPath>
+      <HintPath>libs\TwitchLib.Client.Enums.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Client.Models">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Client.Models.dll</HintPath>
+      <HintPath>libs\TwitchLib.Client.Models.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Communication">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Communication.dll</HintPath>
+      <HintPath>libs\TwitchLib.Communication.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.PubSub">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.PubSub.dll</HintPath>
+      <HintPath>libs\TwitchLib.PubSub.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Unity">
-      <HintPath>..\..\..\..\Users\RedKa\Downloads\Software\e6914c80-b4be-11eb-96e5-b02fe23a567d\TwitchLib.Unity.Release 5-14\TwitchLib.Unity.dll</HintPath>
+      <HintPath>libs\TwitchLib.Unity.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>..\..\goi-chaos-mod-ui\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
