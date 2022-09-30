@@ -2,6 +2,7 @@
 using BepInEx.Configuration;
 using System.Collections;
 using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace ChaosMod
         GameObject mountain; //InterAction<bool> thingy
         GameObject hammer;
         GameObject woodenBarrel;
+        GameObject orange;
         GameObject cam;
         GameObject narrator;
 
@@ -88,19 +90,19 @@ namespace ChaosMod
             //Physics2D.gravity = new Vector2(0f, -10f);
 
             effects.Add("No Friction", fncFrictionlessEnviroment);
-            effects.Add("Send to Spawn", fncSendToSpawn);
+            //effects.Add("Send to Spawn", fncSendToSpawn);
             effects.Add("Short Hammer", fncShortHammer);
             effects.Add("Long Hammer", fncLongHammer);
             effects.Add("Spawn Object", fncSpawnObject);
             effects.Add("High Pitch", fncHighPitch);
-            //effects.Add("Low Pitch", fncLowPitch);
             effects.Add("High Gravity", fncHighGravity);
             effects.Add("Low Gravity", fncLowGravity);
             effects.Add("Zoom Out", fncZoomCamera);
             effects.Add("Australian Mode", fncFlipCamera);
+            effects.Add("Baba Player", fncBabyPlayer);
             //increased effectEvery speed
 
-            doNotRepeat.Add(fncSendToSpawn);
+            //doNotRepeat.Add(fncSendToSpawn);
             doNotRepeat.Add(fncSpawnObject);
 
             Bot bot = new Bot(this);
@@ -125,8 +127,9 @@ namespace ChaosMod
                 woodenBarrel = GameObject.Find("SnowHat");
                 cam = GameObject.FindGameObjectWithTag("MainCamera");
                 narrator = GameObject.Find("Narrator");
+                orange = GameObject.Find("Orange");
 
-                assetBundle = AssetBundle.LoadFromFile(System.IO.Path.Combine(Application.streamingAssetsPath, "ui"));
+                assetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "ui"));
 
                 var prefab = assetBundle.LoadAsset<GameObject>("INJECTED_UI_HOLDER");
                 Instantiate(prefab);
@@ -177,7 +180,7 @@ namespace ChaosMod
             if (!start)
             {
                 runningEffects.Remove(action);
-                Destroy(GameObject.Find("Current").transform.GetChild(0).gameObject);  
+                Destroy(currentParent.transform.GetChild(0).gameObject);
             }
 
             return (!start && occurenceInRunningList(action) < 2 && !doNotRepeat.Contains(action));
@@ -195,6 +198,7 @@ namespace ChaosMod
             }
         }
 
+        /*
         private void fncSendToSpawn(bool start)
         {
             if (start)
@@ -206,6 +210,7 @@ namespace ChaosMod
                 runningEffects.Remove(fncSendToSpawn);
             }
         }
+        */
 
         private void fncShortHammer(bool start)
         {
@@ -238,7 +243,7 @@ namespace ChaosMod
             }
             else
             {
-                Destroy(GameObject.Find("Current").transform.GetChild(0).gameObject);
+                Destroy(currentParent.transform.GetChild(0).gameObject);
                 runningEffects.Remove(fncSpawnObject);
             }
         }
@@ -312,6 +317,39 @@ namespace ChaosMod
             }
         }
 
+        private void fncBabyPlayer(bool start)
+        {
+            if (isDisabling(start, fncBabyPlayer))
+            {
+                player.transform.localScale = new Vector3(1F, 1F, 1F);
+            }
+            else
+            {
+                player.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+            }
+        }
+
+        /*
+        private void fncExplodingOrange(bool start)
+        {
+            GameObject gameObject = Instantiate(orange, new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z), Quaternion.identity);
+            helperExplodingOrage(3, gameObject);
+        }
+
+        IEnumerator helperExplodingOrage(int seconds, GameObject gameObject)
+        {
+            yield return new WaitForSeconds(seconds);
+            Collider[] colided = Physics.OverlapSphere(gameObject.transform.position, 5f);
+            foreach(Collider nearObject in colided)
+            {
+                Rigidbody2D rb = nearObject.GetComponent<Rigidbody2D>();
+                if (rb == null) continue;
+                Vector2 distanceVector = nearObject.transform.position - gameObject.transform.position;
+                rb.AddForce(distanceVector.normalized * 100);
+            }
+        }
+        */
+
         /*
         private void fncLimitFPS(bool start)
         {
@@ -329,7 +367,7 @@ namespace ChaosMod
 
             int[] effectIndexes = new int[4];
 
-            int i = effects.Count-1;
+            int i = effects.Count;
             System.Random rnd = new System.Random();
 
             for (int v = 0; v < 3;)
@@ -402,7 +440,7 @@ namespace ChaosMod
             effects.ElementAt(index).Value(true);
             var prefab = assetBundle.LoadAsset<GameObject>("EffectHolder");
             var instPrefab = Instantiate(prefab);
-            instPrefab.transform.parent = currentParent.transform;
+            instPrefab.transform.SetParent(currentParent.transform);
             instPrefab.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = effects.ElementAt(index).Key;
             var progressBarEffect = instPrefab.transform.GetChild(1).transform.Find("ProgressBar").gameObject;
             getRandomEffects();
@@ -414,7 +452,7 @@ namespace ChaosMod
             if (doNotRepeat.Contains(effect))
             {
                 gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
-                //gameObject.GetComponentInParent<Image>().visible = false;
+                gameObject.transform.parent.GetComponent<UnityEngine.UI.Image>().color = new Color(0, 0, 0, 0);
             }
             LeanTween.scaleX(gameObject, 1, time).setOnComplete(() => { effect(false); });
         }
