@@ -100,6 +100,7 @@ namespace ChaosMod
             effects.Add("Zoom Out", fncZoomCamera);
             effects.Add("Australian Mode", fncFlipCamera);
             effects.Add("Baba Player", fncBabyPlayer);
+            effects.Add("Potato Simulator", fncLimitFPS);
             //increased effectEvery speed
 
             //doNotRepeat.Add(fncSendToSpawn);
@@ -108,11 +109,24 @@ namespace ChaosMod
             Bot bot = new Bot(this);
         }
 
-        /*
+        
         private void Update()
         {
             if (!isMain) return;
-        }*/
+            /*
+            if (Input.GetKeyDown("a"))
+            {
+                int i = effects.Count;
+                System.Random rnd = new System.Random();
+                for (int v = 0; v < 100; v++)
+                {
+                    int index = rnd.Next(0, i);
+                    Console.WriteLine("Effect: " + effects.ElementAt(index).Key + " Index: " + v);
+                }
+            }
+            */
+        }
+        
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
@@ -350,14 +364,20 @@ namespace ChaosMod
         }
         */
 
-        /*
+        
         private void fncLimitFPS(bool start)
         {
-            int width = PlayerPrefs.GetInt("ResolutionWidth");
-            int height = PlayerPrefs.GetInt("ResolutionHeight");
-            Screen.SetResolution(width, height, Screen.tullScreen, 5);
+            if (isDisabling(start, fncLimitFPS))
+            {
+                QualitySettings.vSyncCount = PlayerPrefs.GetInt("Vsync");
+                Application.targetFrameRate = PlayerPrefs.GetInt("ResolutionRefresh");
+            } else
+            {
+                QualitySettings.vSyncCount = 0;
+                Application.targetFrameRate = 10;
+            }
         }
-        */
+        
 
         public void getRandomEffects()
         {
@@ -372,7 +392,7 @@ namespace ChaosMod
 
             for (int v = 0; v < 3;)
             {
-                int index = rnd.Next(i);
+                int index = rnd.Next(0, i);
                 bool isUsed = false;
                 foreach (int ind in effectIndexes)
                 {
