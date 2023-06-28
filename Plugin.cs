@@ -500,17 +500,17 @@ namespace ChaosMod
             }
 
 
-            percentage1.text = $"{Decimal.Round((currentVotes[1 + offset] / totalVotes)*100)}%";
-            rect1.localScale = new Vector2(currentVotes[1 + offset] / totalVotes, rect1.localScale.y);
+            percentage1.text = $"{Math.Round(((float)currentVotes[1 + offset] / (float)totalVotes) * 100)}%";
+            rect1.localScale = new Vector2(((float)currentVotes[1 + offset] / (float)totalVotes), rect1.localScale.y);
 
-            percentage2.text = $"{Decimal.Round((currentVotes[2 + offset] / totalVotes) * 100)}%";
-            rect2.localScale = new Vector2(currentVotes[2 + offset] / totalVotes, rect2.localScale.y);
+            percentage2.text = $"{Math.Round(((float)currentVotes[2 + offset] / (float)totalVotes) * 100)}%";
+            rect2.localScale = new Vector2(((float)currentVotes[2 + offset] / (float)totalVotes), rect2.localScale.y);
 
-            percentage3.text = $"{Decimal.Round((currentVotes[3 + offset] / totalVotes) * 100)}%";
-            rect3.localScale = new Vector2(currentVotes[3 + offset] / totalVotes, rect3.localScale.y);
+            percentage3.text = $"{Math.Round(((float)currentVotes[3 + offset] / (float)totalVotes) * 100)}%";
+            rect3.localScale = new Vector2(((float)currentVotes[3 + offset] / (float)totalVotes), rect3.localScale.y);
 
-            percentage4.text = $"{Decimal.Round((currentVotes[4 + offset] / totalVotes) * 100)}%";
-            rect4.localScale = new Vector2(currentVotes[4 + offset] / totalVotes, rect4.localScale.y);
+            percentage4.text = $"{Math.Round(((float)currentVotes[4 + offset] / (float)totalVotes) * 100)}%";
+            rect4.localScale = new Vector2(((float)currentVotes[4 + offset] / (float)totalVotes), rect4.localScale.y);
 
             votestxt.text = $"Total Votes: {totalVotes}";
         }
